@@ -7,10 +7,14 @@ export default function DashboardPage() {
 
   // ---- อ่านข้อมูลจาก LocalStorage ----
   useEffect(() => {
-    const data = localStorage.getItem("registrants");
-    if (data) {
-      setRegistrants(JSON.parse(data) as Registrant[]);
-    }
+    const loadData = () => {
+      const data = localStorage.getItem("registrants");
+      setRegistrants(data ? (JSON.parse(data) as Registrant[]) : []);
+    };
+
+    loadData(); // โหลดครั้งแรก
+    window.addEventListener("registrants-updated", loadData);
+    return () => window.removeEventListener("registrants-updated", loadData);
   }, []);
 
   // ---- ยอดรวมทั้งหมด ----

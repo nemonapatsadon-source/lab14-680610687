@@ -188,9 +188,9 @@ export default function ModalRegister() {
                   className="me-2 form-check-input"
                   type="radio"
                   name="gender"
-                  checked={gender === "Male"}
+                  checked={gender === "male"}
                   onChange={() => {
-                    setGender("Male");
+                    setGender("male");
                     setErrGender(false);
                   }}
                 />
@@ -199,9 +199,9 @@ export default function ModalRegister() {
                   className="mx-2 form-check-input"
                   type="radio"
                   name="gender"
-                  checked={gender === "Female"}
+                  checked={gender === "female"}
                   onChange={() => {
-                    setGender("Female");
+                    setGender("female");
                     setErrGender(false);
                   }}
                 />
